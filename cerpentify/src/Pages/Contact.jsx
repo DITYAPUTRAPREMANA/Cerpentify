@@ -1,6 +1,7 @@
 import React from "react";
 import BackgroundPattern from "../Component/Background.jsx";
 import Navbar from "../Component/Navbar.jsx";
+import "./Contact.css";
 
 export default function ContactPage() {
   return (
@@ -60,7 +61,7 @@ export default function ContactPage() {
         }}>
           
           {/* Email Card */}
-          <div style={{ 
+          <div className="contact-card email-card" style={{ 
             background: "#667eea",
             borderRadius: "20px",
             padding: "40px",
@@ -104,7 +105,7 @@ export default function ContactPage() {
           </div>
           
           {/* Phone Card */}
-          <div style={{ 
+          <div className="contact-card phone-card" style={{ 
             background: "#f5576c",
             borderRadius: "20px",
             padding: "40px",

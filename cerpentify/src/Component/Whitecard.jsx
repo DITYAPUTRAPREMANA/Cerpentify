@@ -1,26 +1,29 @@
+// Whitecard.jsx
 import React from "react";
 
+// Fungsi untuk memotong content menjadi 10-20 kata dan menambahkan '...'
 const getShortContent = (text, minWords = 10, maxWords = 20) => {
   const words = text.split(" ");
   if (words.length <= maxWords) {
-    return text; 
+    return text;  // Jika jumlah kata lebih sedikit atau sama dengan maxWords, tampilkan seluruhnya
   }
-  return words.slice(0, Math.max(minWords, maxWords)).join(" ") + "..."; 
+  return words.slice(0, Math.max(minWords, maxWords)).join(" ") + "...";  // Potong dan tambahkan '...'
 };
 
+// Fungsi untuk memotong title menjadi 2-4 kata dan menambahkan '...'
 const getShortTitle = (title, minWords = 2, maxWords = 3) => {
   const words = title.split(" ");
   if (words.length <= maxWords) {
-    return title;  
+    return title;  // Jika jumlah kata lebih sedikit atau sama dengan maxWords, tampilkan seluruhnya
   }
-  return words.slice(0, Math.max(minWords, maxWords)).join(" ") + "..."; 
+  return words.slice(0, Math.max(minWords, maxWords)).join(" ") + "...";  // Potong dan tambahkan '...'
 };
 
-export default function CardWhite({ title, author, content }) {
+export default function CardWhite({ id, title, author, content }) {
   return (
     <div
       className="max-w-xs w-full p-6 bg-white rounded-2xl shadow-md space-y-4 cursor-pointer transition-transform duration-200 hover:shadow-xl hover:scale-105 active:scale-95"
-      onClick={() => alert('Card diklik!')}
+      onClick={() => alert(`Card dengan ID: ${id} diklik!`)}  // Menampilkan id saat kartu diklik
     >
       {/* Judul */}
       <h2 className="text-xl font-semibold text-gray-800">{getShortTitle(title)}</h2> {/* Menampilkan title yang sudah dipotong */}

@@ -1,3 +1,4 @@
+// Dashboard.jsx
 import React, { useState, useEffect } from "react";
 import BackgroundPattern from "../Component/Background.jsx";
 import Navbar from "../Component/Navbar.jsx";
@@ -13,8 +14,11 @@ export default function Dashboard() {
     try {
       const cerpenCollection = collection(db, "cerpen");
       const cerpenSnapshot = await getDocs(cerpenCollection);
-      const cerpenData = cerpenSnapshot.docs.map((doc) => doc.data());
-      setCerpenList(cerpenData);  // Menyimpan data cerpen ke state
+      const cerpenData = cerpenSnapshot.docs.map((doc) => ({
+        id: doc.id,  // Menambahkan id dokumen ke data
+        ...doc.data(),  // Menambahkan data dokumen
+      }));
+      setCerpenList(cerpenData);  // Menyimpan data cerpen beserta id ke state
     } catch (error) {
       console.error("Error fetching cerpen data:", error);
     }
@@ -23,7 +27,7 @@ export default function Dashboard() {
   // Mengambil data cerpen ketika komponen pertama kali dimuat
   useEffect(() => {
     fetchCerpenData();
-  }, []);
+  }, []); // Empty dependency array berarti hanya sekali ketika pertama kali mount
 
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
@@ -67,8 +71,8 @@ export default function Dashboard() {
             key={rowIdx}
             style={{
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              justifyContent: "center", // Untuk menyejajarkan kartu di tengah
+              alignItems: "center", // Untuk menyejajarkan kartu secara vertikal
               gap: "50px",
               width: "100%",
             }}
@@ -76,6 +80,7 @@ export default function Dashboard() {
             {cerpenList.slice(rowIdx * 5, rowIdx * 5 + 5).map((cerpen, cardIdx) => (
               <CardWhite
                 key={cardIdx}
+                id={cerpen.id}  // Menyertakan id sebagai prop
                 title={cerpen.title}
                 author={cerpen.author}
                 content={cerpen.content}
