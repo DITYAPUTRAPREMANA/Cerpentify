@@ -1,5 +1,6 @@
 // Whitecard.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Fungsi untuk memotong content menjadi 10-20 kata dan menambahkan '...'
 const getShortContent = (text, minWords = 10, maxWords = 20) => {
@@ -21,9 +22,13 @@ const getShortTitle = (title, minWords = 2, maxWords = 3) => {
 
 export default function CardWhite({ id, title, author, content }) {
   return (
+    <Link to="/cerpen">
     <div
       className="max-w-xs w-full p-6 bg-white rounded-2xl shadow-md space-y-4 cursor-pointer transition-transform duration-200 hover:shadow-xl hover:scale-105 active:scale-95"
+<<<<<<< HEAD
+=======
       onClick={() => alert(`Card dengan ID: ${id} diklik!`)}  // Menampilkan id saat kartu diklik
+>>>>>>> 1aa3aed73dfde182ce511c087e4f4e6146fd5c71
     >
       {/* Judul */}
       <h2 className="text-xl font-semibold text-gray-800">{getShortTitle(title)}</h2> {/* Menampilkan title yang sudah dipotong */}
@@ -61,5 +66,6 @@ export default function CardWhite({ id, title, author, content }) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
