@@ -27,9 +27,9 @@ const squiggles = [
   { style: "bottom-[40%] left-[60px]" },
 ];
 
-export default function BackgroundBlue() {
+export default function BackgroundDashboard() {
   return (
-    <div className="absolute inset-0 w-full min-h-screen bg-[#EBECFA] overflow-hidden -z-10">
+    <div className="fixed inset-0 w-full min-h-screen bg-[#FCEEED] overflow-hidden -z-10">
       {/* Background Icons */}
       {icons.map((icon, idx) => (
         <img

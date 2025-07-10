@@ -12,28 +12,22 @@ const Navbar = () => {
       {/* Navigation Links */}
       <div className="flex gap-8">
         <a
-          href="/dashboard"
+          href="/"
           className="text-gray-800 text-lg font-medium hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
         >
-          Beranda
+          Home
         </a>
         <a
-          href="/koleksi"
+          href="#fiturutama"
           className="text-gray-800 text-lg font-medium hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
         >
-          Koleksi
+          About
         </a>
         <a
           href="#contact"
           className="text-gray-800 text-lg font-medium hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
         >
-          Kontak
-        </a>
-        <a
-          href="#myStories"
-          className="text-gray-800 text-lg font-medium hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105"
-        >
-          Cerpenku
+        Contact
         </a>
       </div>
 
@@ -50,7 +44,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <span className="text-red-500 text-sm">IDN</span>
           <button className="px-4 py-2 text-sm bg-gray-300 rounded-[100px] hover:bg-gray-400 transition duration-300 ease-in-out transform hover:scale-105">
-            Akun
+            Login
           </button>
         </div>
       </div>
